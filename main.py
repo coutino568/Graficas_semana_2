@@ -149,10 +149,22 @@ def trapesoide(x,y,width,height):
     myRenderer.glLine(x+(width/3),y+height,x+(2/3)*width,y+height)
 
 
+def face(x0,y0,x1,y1,density=1):
+    myRenderer.glColor(random.random(),0.2,0.8)
+    strokes = int(x1-x0)
+    height= int(y1-y0)
+    density= density
+
+    myRenderer.glLine(x0,y0,x0,y0+height)
+
+    for i in range (1,height,1):
+        if (i%density==0):
+            myRenderer.glLine(x0,y0+i,x1,y0+i+height)
+
 
 
 trapesoide(1200,200,700,400)
-
+face(50,50,270,100,2)
 cube2(1550,600)
 
 #myRenderer.show()
